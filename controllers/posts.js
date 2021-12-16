@@ -2,8 +2,14 @@ const Posts = require('../models/post');
 
 module.exports = {
     new: newPost,
-    create
+    create,
+    index
 };
+
+async function index(req, res) {
+    const posts = await Posts.find({});
+    res.render('posts/feed', { title: "Feed", posts });
+}
 
 function newPost(req, res) {
     res.render('posts/new', { title: 'New Post'});

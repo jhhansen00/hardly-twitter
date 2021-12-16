@@ -7,5 +7,7 @@ const isLoggedIn = require('../config/auth');
 router.get('/new', postsCtrl.new);
 
 router.post('/', postsCtrl.create);
+
+router.get('/feed', postsCtrl.index);
 	
 module.exports = router;

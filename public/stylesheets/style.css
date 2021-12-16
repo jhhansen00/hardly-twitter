@@ -42,3 +42,13 @@ nav > a {
   align-items: center;
   height: 34px;
 }
+
+#avatar {
+  border-radius: 50%;
+  height: 59px;
+  width: 59px;
+}
+
+#posts {
+  padding-top: 10px;
+}
