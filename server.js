@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var postsRouter = require('./routes/posts');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var repliesRouter = require('./routes/replies');
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
@@ -37,6 +38,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', repliesRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);

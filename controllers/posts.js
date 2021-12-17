@@ -3,7 +3,8 @@ const Posts = require('../models/post');
 module.exports = {
     new: newPost,
     create,
-    index
+    index,
+    show
 };
 
 async function index(req, res) {
@@ -26,3 +27,8 @@ function create(req, res) {
     });
 }
 
+function show(req, res) {
+    Posts.findById(req.params.id, function(err, post) {
+        res.render('posts/show', { title: 'Replies', user: res.locals.user, post });
+    });
+};

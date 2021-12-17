@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div id="show-post">
+    <div class="name"><img alt="avatar" id="avatar" src="<%= user.avatar %>"><div id="name-space"><%= user.userName %></div></div>
+    <div><%= post.content %></div>
+</div> 
+
+<h1>Reply</h1>
+<form id="new-form" action="/posts/<%= post._id %>/replies" method="POST">
+    <input type="text" name="content" id="post-box">
+    <button type='submit'>Post</button>
+</form>
+
+<% if (post.replies.length) { %>
+    <div>Replies</div>
+        <% post.replies.forEach(function(r) { %>
+          <div>
+            <div class="name"><img alt="avatar" id="avatar" src="<%= r.userAvatar %>"><div id="name-space"><%= r.userName %></div></div>
+            <div><%= r.content %></div>
+          </div>
+        <% }); %>
+<% } else { %>
+    <h5>No Replies Yet</h5>
+<% } %>

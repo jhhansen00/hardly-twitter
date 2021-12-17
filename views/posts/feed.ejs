@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
-    <% posts.forEach(function(m) { %>
-      <div id="posts">
-        <div class=""><img alt="avatar" id="avatar" src="<%= m.userAvatar %>"><%= m.userName %></div>
-        <div><%= m.content %></div>
-        <div><a href="/posts/<%= m._id %>">More..</a></div>
-      </div> 
-    <% }); %>
+<% posts.forEach(function(m) { %>
+  <div id="posts">
+    <div class="name"><img alt="avatar" id="avatar" src="<%= m.userAvatar %>"><div id="name-space"><%= m.userName %></div></div>
+    <div><%= m.content %></div>
+    <div><a href="/posts/<%= m._id %>">Replies..</a></div>
+  </div> 
+<% }); %>

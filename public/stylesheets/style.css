@@ -47,8 +47,22 @@ nav > a {
   border-radius: 50%;
   height: 59px;
   width: 59px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(100, 203, 238);
 }
 
 #posts {
   padding-top: 10px;
+}
+
+.name {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-weight: bolder;
+}
+
+#name-space {
+  padding-left: 7px;
 }
