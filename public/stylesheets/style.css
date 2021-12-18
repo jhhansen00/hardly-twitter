@@ -1,6 +1,8 @@
 body {
   padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(36, 35, 35);
+  color: white;
 }
 
 a {
@@ -9,13 +11,13 @@ a {
 
 body > nav {
   grid-area: nav;
-  background-color: white;
+  background-color: rgb(36, 35, 35);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
-  border-color: white white lightblue white;
-  border-width: 2px;
+  border-color: rgb(36, 35, 35) rgb(36, 35, 35) lightblue rgb(36, 35, 35);
+  border-width: 1px;
   border-style: solid;
 }
 
@@ -43,26 +45,72 @@ nav > a {
   height: 34px;
 }
 
-#avatar {
+.avatar {
   border-radius: 50%;
   height: 59px;
   width: 59px;
   border-style: solid;
   border-width: 2px;
   border-color: rgb(100, 203, 238);
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
-#posts {
-  padding-top: 10px;
+.posts {
+  display: flex;
+  padding-top: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightblue;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
 }
 
 .name {
   display: flex;
   justify-content: left;
-  align-items: center;
-  font-weight: bolder;
+  /* align-items: top; */
+  position: relative;
+  /* width: 100%; */
 }
 
-#name-space {
+.name-space {
   padding-left: 7px;
+  font-weight: bolder;
+  padding-bottom: 3px;
+}
+
+.pcontent {
+  padding-left: 7px;
+  position: relative;
+  /* word-wrap: break-word; */
+  inline-size: 80vw;
+  /* width: auto; */
+  overflow-wrap: break-word;
+}
+
+.reply-link {
+  display: flex;
+  justify-content: right;
+}
+
+.reply-button {
+  background-color: rgb(84, 84, 192);
+  color: white;
+  font-size: 16px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  margin-bottom: 5px;
+}
+
+.reply-button:hover {
+  background-color: rgb(92, 203, 240);
+  color: white;
+}
+
+#feed {
+  display: flex;
+  justify-content: center;
 }

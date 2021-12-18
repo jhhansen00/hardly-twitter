@@ -1,9 +1,20 @@
 <%- include('../partials/header') %>
 
-<div id="show-post">
-    <div class="name"><img alt="avatar" id="avatar" src="<%= user.avatar %>"><div id="name-space"><%= user.userName %></div></div>
+<!-- <div id="show-post">
+    <div class="name"><img alt="avatar" id="avatar" src="<%= user.avatar %>"><div id="name-space"><%= user.name %></div></div>
     <div><%= post.content %></div>
-</div> 
+</div>  -->
+
+<div class="posts">
+    <div class="name"><img alt="avatar" class="avatar" src="<%= user.avatar %>">
+      <div>
+        <div class="name-space"><%= user.name %></div>
+        <div class="pcontent" ><%= post.content %></div>
+      </div>
+    </div>
+  </div> 
+
+
 
 <h1>Reply</h1>
 <form id="new-form" action="/posts/<%= post._id %>/replies" method="POST">
