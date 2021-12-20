@@ -31,6 +31,7 @@ function create(req, res) {
 
 function show(req, res) {
     Posts.findById(req.params.id).populate('replies').exec(function(err, post) {
+        console.log(post);
         res.render('posts/show', { title: 'Replies', user: res.locals.user, post });
     });
 };

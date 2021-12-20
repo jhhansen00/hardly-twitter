@@ -22,16 +22,10 @@ function create(req, res) {
 };
 
 function deleteReply(req, res, next) {
-    Post.findOne({ "replies._id": req.params.id}).then(function (post) {
-        const reply = post.replies.id(req.params.id);
+    Reply.findById(req.params.rid).then(function (reply) {
         if (!reply.user.equals(req.user._id)) return res.redirect(`/posts/${post._id}`);
-        reply.remove();
-        post.save()
-            .then(function () {
-                res.redirect(`/posts/${post._id}`);
-        })
-        .catch(function (err) {
-            return next(err);
+        reply.remove(function(err) {
+            res.redirect(`/posts/${req.params.postid}`);
         });
-    });
+    })
 };
