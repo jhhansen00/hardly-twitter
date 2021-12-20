@@ -1,4 +1,5 @@
 const Posts = require('../models/post');
+const replies = require('./replies');
 
 module.exports = {
     new: newPost,
@@ -29,13 +30,12 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Posts.findById(req.params.id, function(err, post) {
+    Posts.findById(req.params.id).populate('replies').exec(function(err, post) {
         res.render('posts/show', { title: 'Replies', user: res.locals.user, post });
     });
 };
 
 function update(req, res) {
-    console.log("req", req.body);
     Posts.findById(req.params.id, function(err, post) {
         post.content = req.body.editcontent
         post.save();

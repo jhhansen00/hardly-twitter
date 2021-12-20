@@ -1,4 +1,6 @@
 const Post = require('../models/post');
+const reply = require('../models/reply');
+const Reply = require('../models/reply');
 
 module.exports = {
     create,
@@ -10,12 +12,14 @@ function create(req, res) {
     req.body.userAvatar = res.locals.user.avatar;
     req.body.userName = res.locals.user.name;
     Post.findById(req.params.id, function(err, post) {
-        post.replies.push(req.body);
-        post.save(function(err) {
-            res.redirect(`/posts/${post._id}`);
+        Reply.create(req.body, function(err, reply) {
+            post.replies.push(reply);
+            post.save(function(err) {
+                res.redirect(`/posts/${post._id}`);
+            });
         });
     });
-}
+};
 
 function deleteReply(req, res, next) {
     Post.findOne({ "replies._id": req.params.id}).then(function (post) {
