@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 <h1 id="feed">Main Feed</h1>
-<h2><a href="/posts/new">Make A Post</a></h2>
+<% if (user) { %>
+  <h2><a href="/posts/new">Make A Post</a></h2>
+<% } %>
 <% posts.forEach(function(m) { %>
   <div class="posts">
     <div class="name"><img alt="avatar" class="avatar" src="<%= m.userAvatar %>">

@@ -9,7 +9,10 @@
     <div class="name"><img alt="avatar" class="avatar" src="<%= user.avatar %>">
       <div>
         <div class="name-space"><%= user.name %></div>
-        <div class="pcontent" ><%= post.content %></div>
+        <form action="/posts/<%= post._id %>" method="POST">
+          <input name="editcontent" id="edit" class="pcontent" value="<%= post.content %>" />
+          <input type="submit" class="editbutton" value="edit">
+        </form>
       </div>
     </div>
   </div> 

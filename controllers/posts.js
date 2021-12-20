@@ -4,7 +4,8 @@ module.exports = {
     new: newPost,
     create,
     index,
-    show
+    show,
+    update
 };
 
 async function index(req, res) {
@@ -30,5 +31,14 @@ function create(req, res) {
 function show(req, res) {
     Posts.findById(req.params.id, function(err, post) {
         res.render('posts/show', { title: 'Replies', user: res.locals.user, post });
+    });
+};
+
+function update(req, res) {
+    console.log("req", req.body);
+    Posts.findById(req.params.id, function(err, post) {
+        post.content = req.body.editcontent
+        post.save();
+        res.redirect(`/posts/${post._id}`);
     });
 };

@@ -11,5 +11,7 @@ router.post('/', postsCtrl.create);
 router.get('/feed', postsCtrl.index);
 
 router.get('/:id', postsCtrl.show);
+
+router.post('/:id', postsCtrl.update);
 	
 module.exports = router;

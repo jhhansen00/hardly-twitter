@@ -4,5 +4,5 @@ const repliesCtrl = require('../controllers/replies');
 
 router.post('/posts/:id/replies', repliesCtrl.create);
 
-router.delete('/replies/:id', repliesCtrl.delete);
+router.delete('/posts/:id', repliesCtrl.delete);
 module.exports = router;

@@ -34,15 +34,10 @@ nav > a {
   border-radius: 5px;
 }
 
-.login img{
-  height: 30px;
-}
-
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 34px;
 }
 
 .avatar {
