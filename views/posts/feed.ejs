@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 <h1 id="feed">Main Feed</h1>
+<h2><a href="/posts/new">Make A Post</a></h2>
 <% posts.forEach(function(m) { %>
   <div class="posts">
     <div class="name"><img alt="avatar" class="avatar" src="<%= m.userAvatar %>">
@@ -7,7 +8,9 @@
       <div>
         <div class="name-space"><%= m.userName %></div>
         <div class="pcontent" ><%= m.content %></div>
-        <div class="reply-link"><button class="reply-button" onclick="window.location.href='/posts/<%= m._id %>';">Replies</div>
+          <% if (user) { %>
+            <div class="reply-link"><button class="reply-button" onclick="window.location.href='/posts/<%= m._id %>';">Replies</div>
+          <% } %>
       </div>
     </div>
   </div> 

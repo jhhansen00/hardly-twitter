@@ -1,7 +1,8 @@
 const Post = require('../models/post');
 
 module.exports = {
-    create
+    create,
+    delete: deleteReply,
 };
 
 function create(req, res) {
@@ -15,3 +16,18 @@ function create(req, res) {
         });
     });
 }
+
+function deleteReply(req, res, next) {
+    Post.findOne({ "replies._id": req.params.id}).then(function (post) {
+        const reply = post.replies.id(req.params.id);
+        if (!reply.user.equals(req.user._id)) return res.redirect(`/posts/${post._id}`);
+        reply.remove();
+        post.save()
+            .then(function () {
+                res.redirect(`/posts/${post._id}`);
+        })
+        .catch(function (err) {
+            return next(err);
+        });
+    });
+};
