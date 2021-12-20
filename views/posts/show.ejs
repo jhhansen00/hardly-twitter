@@ -16,23 +16,29 @@
 
 
 
-<h1>Reply</h1>
+<h1>Write A Reply</h1>
 <form id="new-form" action="/posts/<%= post._id %>/replies" method="POST">
     <input type="text" name="content" id="post-box">
     <button type='submit'>Post</button>
 </form>
 
 <% if (post.replies.length) { %>
-    <div>Replies</div>
+    <h1>Replies</h1>
         <% post.replies.forEach(function(r) { %>
-          <div>
-            <div class="name"><img alt="avatar" id="avatar" src="<%= r.userAvatar %>"><div id="name-space"><%= r.userName %></div></div>
-            <div><%= r.content %></div>
-            <div><% if (user && user._id.equals(r.user)) { %>
-              <form action="/posts/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %></div>
+          <div class="posts"> 
+            <div class="name"><img alt="avatar" id="avatar" src="<%= r.userAvatar %>">
+              <div>
+                <div class="name-space"><%= r.userName %></div>
+                <div class="pcontent"><%= r.content %></div>
+                  <% if (user && user._id.equals(r.user)) { %>
+                    <div>
+                      <form class="reply-link" action="/posts/<%= r._id %>?_method=DELETE" method="POST">
+                      <button type="submit">X</button>
+                      </form>
+                    </div>
+                  <% } %>
+              </div>  
+            </div>
           </div>
         <% }); %>
 <% } else { %>
