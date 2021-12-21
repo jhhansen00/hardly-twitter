@@ -47,12 +47,9 @@ function update(req, res) {
 };
 
 function deletePost(req, res, next) {
-    Posts.findById(req.params.id).then(function (post) {
+    Posts.deleteOne({_id: req.params.id}).then(function (err, post) {
         Reply.remove({post:req.params.id}).then(function(err) {
-        if (!post.user.equals(req.user._id))
-            post.remove(function(err) {
-                return res.redirect(`/posts/feed`);
-            });
+            res.redirect(`/posts/feed`);
         });
     });
 };
