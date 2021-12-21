@@ -12,6 +12,7 @@ function create(req, res) {
     req.body.userAvatar = res.locals.user.avatar;
     req.body.userName = res.locals.user.name;
     Post.findById(req.params.id, function(err, post) {
+        req.body.post = post;
         Reply.create(req.body, function(err, reply) {
             post.replies.push(reply);
             post.save(function(err) {

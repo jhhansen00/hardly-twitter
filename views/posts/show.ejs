@@ -6,16 +6,23 @@
 </div>  -->
 
 <div class="posts">
-    <div class="name"><img alt="avatar" class="avatar" src="<%= user.avatar %>">
-      <div>
-        <div class="name-space"><%= user.name %></div>
-        <form action="/posts/<%= post._id %>" method="POST">
+  <div class="name"><img alt="avatar" class="avatar" src="<%= user.avatar %>">
+    <div>
+      <div class="name-space"><%= user.name %></div>
+      <% if (user && user._id.equals(post.user)) { %>
+        <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
           <input name="editcontent" id="edit" class="pcontent" value="<%= post.content %>" />
           <input type="submit" class="editbutton" value="edit">
         </form>
-      </div>
+        <div>
+          <form class="reply-link" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+          </form>
+        </div>
+      <% } %>
     </div>
-  </div> 
+  </div>
+</div> 
 
 
 
@@ -26,8 +33,9 @@
 </form>
 
 <% if (post.replies.length) { %>
+
   <h1>Replies</h1>
-      <% post.replies.forEach(function(r) { %>
+      <% post.replies.reverse().forEach(function(r) { %>
         <div class="posts"> 
           <div class="name"><img alt="avatar" id="avatar" src="<%= r.userAvatar %>">
             <div>

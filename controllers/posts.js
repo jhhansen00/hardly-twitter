@@ -1,4 +1,5 @@
 const Posts = require('../models/post');
+const Reply = require('../models/reply');
 const replies = require('./replies');
 
 module.exports = {
@@ -6,7 +7,8 @@ module.exports = {
     create,
     index,
     show,
-    update
+    update,
+    delete: deletePost
 };
 
 async function index(req, res) {
@@ -41,5 +43,16 @@ function update(req, res) {
         post.content = req.body.editcontent
         post.save();
         res.redirect(`/posts/${post._id}`);
+    });
+};
+
+function deletePost(req, res, next) {
+    Posts.findById(req.params.id).then(function (post) {
+        Reply.remove({post:req.params.id}).then(function(err) {
+        if (!post.user.equals(req.user._id))
+            post.remove(function(err) {
+                return res.redirect(`/posts/feed`);
+            });
+        });
     });
 };

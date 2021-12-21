@@ -12,6 +12,7 @@ router.get('/feed', postsCtrl.index);
 
 router.get('/:id', postsCtrl.show);
 
-router.post('/:id', postsCtrl.update);
+router.put('/:id', postsCtrl.update);
 	
+router.delete('/:id', postsCtrl.delete);
 module.exports = router;

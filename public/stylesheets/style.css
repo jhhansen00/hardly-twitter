@@ -120,3 +120,13 @@ h2 {
 h1 {
   border-bottom: 2px lightblue solid;
 }
+
+#edit {
+  background-color: rgb(36, 35, 35);
+  color: white;
+}
+
+.editbutton {
+  background-color: rgb(84, 84, 192);
+  color: white;
+}

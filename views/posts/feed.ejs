@@ -3,7 +3,7 @@
 <% if (user) { %>
   <h2><a href="/posts/new">Make A Post</a></h2>
 <% } %>
-<% posts.forEach(function(m) { %>
+<% posts.reverse().forEach(function(m) { %>
   <div class="posts">
     <div class="name"><img alt="avatar" class="avatar" src="<%= m.userAvatar %>">
     <!-- <div id="whateverIwant"> -->
