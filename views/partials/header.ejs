@@ -9,9 +9,8 @@
 </head>
 <body>
     <nav>
-        <a href="/posts/feed">Home</a>
+        <a href="/posts/feed">Feed</a>
         <% if (user) { %>
-            <a href="/">Profile</a>
             <a href="/logout">Log Out</a>
         <% } else { %>    
             <a href="/auth/google" class="login" id="google">Log In</a>

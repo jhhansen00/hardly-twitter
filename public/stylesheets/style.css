@@ -130,3 +130,13 @@ h1 {
   background-color: rgb(84, 84, 192);
   color: white;
 }
+
+.deletebutton {
+  background-color: red;
+  color: white;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}

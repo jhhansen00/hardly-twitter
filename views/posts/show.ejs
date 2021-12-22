@@ -16,7 +16,7 @@
         </form>
         <div>
           <form class="reply-link" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
+          <button class="deletebutton" type="submit">X</button>
           </form>
         </div>
       <% } else { %>
@@ -39,14 +39,14 @@
   <h1>Replies</h1>
       <% post.replies.reverse().forEach(function(r) { %>
         <div class="posts"> 
-          <div class="name"><img alt="avatar" id="avatar" src="<%= r.userAvatar %>">
+          <div class="name"><img alt="avatar" id="avatar" class="avatar" src="<%= r.userAvatar %>">
             <div>
               <div class="name-space"><%= r.userName %></div>
               <div class="pcontent"><%= r.content %></div>
                 <% if (user && user._id.equals(r.user)) { %>
                   <div>
                     <form class="reply-link" action="/posts/<%= post._id %>/replies/<%= r._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
+                    <button class="deletebutton" type="submit">X</button>
                     </form>
                   </div>
                 <% } %>

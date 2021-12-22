@@ -1,8 +1,7 @@
 <%- include('./partials/header') %>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <% if (user) { %>
-      <a href="/posts/new">make a post</a>
-    <% } %>
+    <p class="welcome">Welcome to <%= title %></p>
+    <a href="/auth/google" class="login" id="google">Log In</a>
+    <a class="welcome" href="/posts/feed">Feed</a>
   </body>
