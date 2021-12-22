@@ -6,9 +6,9 @@
 </div>  -->
 
 <div class="posts">
-  <div class="name"><img alt="avatar" class="avatar" src="<%= user.avatar %>">
+  <div class="name"><img alt="avatar" class="avatar" src="<%= post.userAvatar %>">
     <div>
-      <div class="name-space"><%= user.name %></div>
+      <div class="name-space"><%= post.userName %></div>
       <% if (user && user._id.equals(post.user)) { %>
         <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
           <input name="editcontent" id="edit" class="pcontent" value="<%= post.content %>" />
@@ -19,6 +19,8 @@
           <button type="submit">X</button>
           </form>
         </div>
+      <% } else { %>
+        <div class="pcontent"><%= post.content %></div>
       <% } %>
     </div>
   </div>
