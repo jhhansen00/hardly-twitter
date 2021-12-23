@@ -17,3 +17,4 @@ Mongoose, Express, Node.js, HTML, CSS, Javascript, Google OAuth
 - Able to add images to a post/reply
 - hashtags
 - like function
+- add timestamps so you know when it was posted
